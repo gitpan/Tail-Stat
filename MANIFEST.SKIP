@@ -1,0 +1,15 @@
+# vcs
+\B\.svn\b
+# temp
+\bbak$
+\bswp$
+# generated
+^Makefile$
+^blib/
+^MakeMaker-\d
+pm_to_blib
+# samples
+\btstatd\.db$
+# distfiles
+\btar\.gz$
+

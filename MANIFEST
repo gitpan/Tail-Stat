@@ -1,0 +1,13 @@
+bin/tstatd
+Changes
+lib/Tail/Stat.pm
+lib/Tail/Stat/Plugin.pm
+lib/Tail/Stat/Plugin/apache.pm
+lib/Tail/Stat/Plugin/nginx.pm
+lib/Tail/Stat/Plugin/spamd.pm
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+README
+t/00-load.t
+META.yml                                 Module meta-data (added by MakeMaker)
