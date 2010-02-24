@@ -2,7 +2,12 @@ package Tail::Stat::Plugin::spamd;
 
 =head1 NAME
 
-Tail::Stat::Plugin::nginx - Statistics collector for SpamAssassin spamd
+Tail::Stat::Plugin::spamd - Statistics collector for SpamAssassin spamd
+
+=cut
+
+use strict;
+use warnings qw(all);
 
 
 =head1 SYNOPSIS
@@ -114,8 +119,6 @@ Total number of seconds elapsed for processing last messages identified as spam.
 
 =cut
 
-use strict;
-use warnings qw(all);
 
 use base qw(Tail::Stat::Plugin);
 use List::Util qw(sum);
@@ -206,11 +209,12 @@ sub stats_zone {
 }
 
 
-1;
+=head1 AUTHOR
+
+Oleg A. Mamontov, C<< <oleg@mamontov.net> >>
+
 
 =head1 COPYRIGHT
-
-Copyright (C) 2010 Oleg A. Mamontov
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
@@ -219,4 +223,6 @@ by the Free Software Foundation; or the Artistic License.
 See http://dev.perl.org/licenses/ for more information.
 
 =cut
+
+1;
 
