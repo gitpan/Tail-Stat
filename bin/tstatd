@@ -23,7 +23,7 @@ use Log::Dispatch::Screen;
 use Log::Dispatch::Syslog;
 use Pid::File::Flock;
 use POE qw(Wheel::FollowTail Wheel::ListenAccept Wheel::ReadWrite);
-use POSIX qw(setsid strftime);
+use POSIX qw(setsid setuid strftime);
 use Socket;
 use Tail::Stat;
 use Tie::Hash::Indexed;
