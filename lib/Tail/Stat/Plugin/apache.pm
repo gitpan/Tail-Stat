@@ -336,6 +336,8 @@ sub stats_zone {
 		unless ($self->{clf}) {
 			# copy remainings values as is
 			$out{$_} += $pub->{$_};
+
+			next;
 		}
 
 		# simple attributes

@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Tail-Stat
-version:            0.03
+version:            0.04
 abstract:           Real-time log statistics server
 author:
     - Oleg A. Mamontov <oleg@mamontov.net>

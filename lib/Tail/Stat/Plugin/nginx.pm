@@ -447,6 +447,8 @@ sub stats_zone {
 
 			# copy remainings values as is
 			$out{$_} += $pub->{$_};
+
+			next;
 		}
 
 		# simple attributes
