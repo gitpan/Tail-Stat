@@ -323,7 +323,7 @@ sub process_data {
 
 	# extended part
 	unless ($self->{clf}) {
-		$win->{request_time} += $ref->[12] if $ref->[12];
+		$win->{request_time} += $ref->[12] if $ref->[12] && $ref->[12] < 1_000_000;
 
 		if ($ref->[13] && $ref->[13] ne '-') {
 			if (index($ref->[13], ',') >= 0 ||
@@ -427,6 +427,10 @@ sub stats_zone {
 		# http_status
 		/^http_status_([1-5])/ and do {
 			$out{'http_status_'. $1.'xx'} += $pub->{$_};
+			# particular statuses
+			/^http_status_(404|499|500)/ and do {
+				$out{'http_status_'. $1} += $pub->{$_};
+			};
 			next;
 		};
 

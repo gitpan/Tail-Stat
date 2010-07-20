@@ -322,6 +322,10 @@ sub stats_zone {
 		# http_status
 		/^http_status_([1-5])/ and do {
 			$out{'http_status_'. $1.'xx'} += $pub->{$_};
+			# particular statuses
+			/^http_status_(404|500)/ and do {
+				$out{'http_status_'. $1} += $pub->{$_};
+			};
 			next;
 		};
 

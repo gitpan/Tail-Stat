@@ -103,7 +103,7 @@ or current window statistics.
 =cut
 
 sub process_data {
-	my ($self,$ref,$pub,$win) = @_;
+	my ($self,$ref,$pub,$prv,$win) = @_;
 
 	$pub->{'arg_'.$_} += $ref->[$_] for 0 .. $#$ref;
 	return 1;

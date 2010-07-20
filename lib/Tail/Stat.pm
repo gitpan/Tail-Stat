@@ -10,7 +10,7 @@ Tail::Stat - Real-time log statistics server
 use strict;
 use warnings qw(all);
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 
 =head1 ABSTRACT

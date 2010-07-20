@@ -94,7 +94,7 @@ if (exists $opts{'change-dir'}) {
 
 $opts{'log-facility'} ||= 'daemon';
 die "invalid log facility: '$opts{'log-facility'}'\n"
-	unless $opts{'log-facility'} =~ /^(auth|authpriv|cron|daemon|kern|local0 through local7|mail|news|syslog|user|uucp)$/;
+	unless $opts{'log-facility'} =~ /^(auth|authpriv|cron|daemon|kern|local[0-7]|mail|news|syslog|user|uucp)$/;
 
 $opts{'log-level'} ||= 'notice';
 die "invalid log level: '$opts{'log-level'}'\n"
@@ -394,7 +394,7 @@ POE::Session->create(
 						next unless $f eq $w->[0];
 
 						unless ($opts{multiple}) {
-							$log->debug("file '$f' already monitored for zone '$zone', ignoring");
+							$log->debug("file '$f' already monitored, ignoring for zone '$zone'");
 							next FILE;
 						}
 
@@ -859,7 +859,7 @@ Options:
     -r, --regex=PATTERN          override plugin regular expression
         --regex-from=FILE        read regular expression from file
     -s, --store-period=SECONDS   data store period (default 60)
-        --timer=NAME:PERIOD      add named timer with fixed period
+        --timer=ZONE:NAME:PERIOD add named timer with fixed period
     -u, --user=LOGIN             change effective process uid to
     -v, --version                print version and exit
     -w, --window-size=SECONDS    size of one sliding window (default 10)
