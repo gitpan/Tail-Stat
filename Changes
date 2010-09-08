@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.06    2010-07-22
+        - Some additional HTTP statuses.
+
 0.02    2010-02-24
         - Some documentation fixes.
 
