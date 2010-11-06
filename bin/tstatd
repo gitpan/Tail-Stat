@@ -832,7 +832,7 @@ sub usage {
 
 Usage: $FindBin::RealScript [ options ] plugin [zone1:]wildcard1 .. [zoneN:]wildcardN
 
-See list of supported plugins.
+More information available under 'Tail::Stat' man page.
 
 Options:
     -a, --agregate-zone=ZONE     agregating anonymous logs to zone

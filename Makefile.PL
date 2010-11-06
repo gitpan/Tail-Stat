@@ -21,7 +21,6 @@ WriteMakefile(
         'Test::More'         => 0,
         'Tie::Hash::Indexed' => 0,
     },
-    PREREQ_FATAL        => 1,
     EXE_FILES           => [ 'bin/tstatd' ],
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Tail-Stat-*' },

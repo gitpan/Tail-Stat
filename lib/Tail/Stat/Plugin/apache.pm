@@ -315,6 +315,11 @@ sub stats_zone {
 		http_status_4xx
 		http_status_5xx
 
+		http_status_404
+		http_status_499
+		http_status_500
+		http_status_502
+
 	), $self->{clf} ? () : qw(
 
 		last_request_time
