@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.08    2010-11-07
+        - Created pod for bin/tstatd.
+
 0.07    2010-11-06
         - Removed PREREQ_FATAL flag.
 

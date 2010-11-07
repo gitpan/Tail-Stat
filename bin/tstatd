@@ -4,6 +4,163 @@
 
 tstatd - Logs real-time accounting daemon
 
+SYNOPSIS
+
+tstatd [ options ] plugin [zone1:]wildcard1 .. [zoneN:]wildcardN
+
+OPTIONS
+
+=over
+
+=item -a I<zone>, --agregate-zone=I<zone>
+
+Agregate data from all anonymous logs (wildcards without explicit
+zone specified) into I<zone>. Default behavior is to create new
+zone for each anonymous log from its file name.
+
+=item -b I<file>, --database-file=I<file>
+
+Use I<file> as persistent storage to keep accumulated data across
+daemon restarts. Default is auto generated from daemon name,
+specified identity and '.db' suffix.
+
+=item --basename
+
+Use only base name (excluding directories and suffix) of anonymous log file
+for auto-created zones.
+
+=item -c I<dir>, --change-dir=I<dir>
+
+Change current directory to I<dir> before wildcards expanding.
+
+=item -d, --debug
+
+Composition of options: C<--foreground> and C<--log-level=debug>.
+
+=item -f, --foreground
+
+Don't detach daemon from control terminal, logging to C<stderr> instead
+log file or syslog.
+
+=item --log-facility=I<name>
+
+Use I<name> as C<facility> for syslog logging (see syslog (3) for list
+of available values). Default is 'daemon'.
+
+=item --log-level=I<level>
+
+Set minimal logging level to I<level> (see syslog (3) for list of available
+values). Default is 'notice'.
+
+=item --log-file=I<file>
+
+Use logging to I<file> instead of syslog logging (which is default).
+
+=item -e I<num>, --expand-period=I<num>
+
+Do wildcards re-expanding and checking for new and missed logs
+every I<num> seconds. Default is '60'.
+
+=item -h, --help
+
+Print brief help message about available options.
+
+=item -i I<string>, --identity=I<string>
+
+Just a string used in title of daemon process, syslog ident (see syslog(3)),
+C<--database-file> and C<--pid-file>. Idea behind this options - multiple
+C<tstatd> instances running simultaneosly.
+
+=item -l [I<address>:]I<port>, --listen=[I<address>:]I<port>
+
+Specify I<address> and I<port> for TCP listen socket binding.
+Default is '127.0.0.1:3638'.
+
+=item --multiple
+
+With this option specified same log file could be included into several
+zones (if log name satisifies several wildcards). Default behavior is to
+include log file only in first satisified zone.
+
+=item -n I<num>, --windows-num=I<num>
+
+Set number of sliding-windows to I<num>. Default is '60'.
+
+=item -o I<string>, --options=I<string>
+
+Comma-separated plugin supported options (like a mount (8) options).
+
+=item --override-from=I<file>
+
+Load content of I<file> into plugin package namespace.
+This is way to easy customize plugin behavior without creating
+another plugin.
+
+=item -p I<file>, --pid-file=I<file>
+
+Use I<file> to keep daemon process id. Default is auto generated
+from daemon name, specified identity and '.pid' suffix.
+
+=item --parse-error=I<level>
+
+Do logging with I<level> (see syslog (3) for available values) about
+all unparsed log lines. Hint: use 'none' for ignoring such lines.
+Default is defining by plugin and usually is 'debug'.
+
+=item -r I<pattern>, --regex=I<pattern>
+
+Use I<pattern> instead of plugin default regular expression for
+matching log lines.
+
+=item --regex-from=I<file>
+
+Load regular expression from I<file> and use instead of plugin default
+regular expression for matching log lines.
+
+=item -s I<num>, --store-period=I<num>
+
+Store accumulated data in a persistent storage every I<num> seconds.
+Default is '60'.
+
+=item --timer=I<zone>:I<timer>:I<num>
+
+Create named I<timer> firing every I<num> seconds for I<zone>.
+
+=item -u <user>, --user=I<user>
+
+Change effective privileges of daemon process to I<user>.
+
+=item -v, --version
+
+Print version information of C<tstatd> and exit.
+
+=item -w I<num>, --window-size=<num>
+
+Set size (duration) of sliding window to I<num> seconds.
+Default is '10'.
+
+=back
+
+
+=head1 SEE ALSO
+
+L<Tail::Stat>
+
+
+=head1 AUTHOR
+
+Oleg A. Mamontov, C<< <oleg@mamontov.net> >>
+
+
+=head1 COPYRIGHT & LICENSE
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+
+See http://dev.perl.org/licenses/ for more information.
+
+
 =cut
 
 use strict;
