@@ -1,13 +1,26 @@
 bin/tstatd
 Changes
+inc/Module/AutoInstall.pm
+inc/Module/Install.pm
+inc/Module/Install/AutoInstall.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Include.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
 lib/Tail/Stat.pm
 lib/Tail/Stat/Plugin.pm
 lib/Tail/Stat/Plugin/apache.pm
+lib/Tail/Stat/Plugin/clamd.pm
+lib/Tail/Stat/Plugin/cvsupd.pm
 lib/Tail/Stat/Plugin/nginx.pm
 lib/Tail/Stat/Plugin/spamd.pm
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
+META.yml
 README
 t/00-load.t
-META.yml                                 Module meta-data (added by MakeMaker)
