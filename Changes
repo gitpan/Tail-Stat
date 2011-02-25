@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.10    2011-02-25
+        - Fixed forgotten bin/tstatd.
+
 0.09    2010-11-07
         - New CVSupd plugin.
 
