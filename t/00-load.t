@@ -1,12 +1,20 @@
-#!perl -T
+#!/usr/bin/env perl
 
-use Test::More tests => 3;
+use strict;
+use warnings;
+
+use Test::More;
+
 
 BEGIN {
     use_ok( 'Tail::Stat' );
     use_ok( 'Tail::Stat::Plugin' );
+    use_ok( 'Tail::Stat::Plugin::apache' );
+    use_ok( 'Tail::Stat::Plugin::clamd' );
+    use_ok( 'Tail::Stat::Plugin::cvsupd' );
     use_ok( 'Tail::Stat::Plugin::nginx' );
+    use_ok( 'Tail::Stat::Plugin::spamd' );
 }
 
-diag( "Testing Tail::Stat $Tail::Stat::VERSION, Perl $], $^X" );
+done_testing;
 

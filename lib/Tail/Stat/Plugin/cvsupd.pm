@@ -23,7 +23,7 @@ Plugin search cvsupd logs for records of three types:
 
 =item C<connect>
 
- +1088 root@some.host.com [CSUP_1_0/17.0]
+ +1088 root@host.domain.com [CSUP_1_0/17.0]
 
 =item C<update>
 
@@ -116,18 +116,32 @@ sub process_data {
 	if ( $ref->[0] ) {
 		# connect
 		$pub->{ clients }++;
+		$win->{ clients }++;
 		$pub->{ 'client:' . $ref->[4] }++;
 	} elsif ( $ref->[5] ) {
 		# collection
 		$pub->{ collections }++;
+		$win->{ collections }++;
 		$ref->[9] =~ s{:}{_}g;
 		$pub->{ 'collection:' . $ref->[9] }++;
 	} elsif ( $ref->[10] ) {
 		# disconnect
 		$pub->{ bytes_in }  += 1024 * $ref->[12];
 		$pub->{ bytes_out } += 1024 * $ref->[13];
+		$win->{ bytes_in }  += 1024 * $ref->[12];
+		$win->{ bytes_out } += 1024 * $ref->[13];
 		$ref->[14] =~ s{:}{_}g;
 		$pub->{ 'status:' . $ref->[14] }++;
+	}
+}
+
+
+sub process_window {
+	my $self = shift;
+	my ($pub,$prv,$wins) = @_;
+
+	for my $m ( qw( clients collections bytes_in bytes_out ) ) {
+		$pub->{'last_' . $m } = sum ( map { $_->{ $m } || 0 } @$wins ) || 0;
 	}
 }
 
@@ -136,8 +150,17 @@ sub stats_zone {
 	my ($self,$zone,$pub,$prv,$wins) = @_;
 
 	# required keys defaults
-	my %out = ( ( map { $_ => 0 }
-		qw( clients collections bytes_in bytes_out ) ), %$pub );
+	my %out = ( ( map { $_ => 0 } qw(
+		clients
+		collections
+		bytes_in
+		bytes_out
+
+		last_clients
+		last_collections
+		last_bytes_in
+		last_bytes_out
+	) ), %$pub );
 
 	map { $_ . ': ' . $out{ $_ } } sort keys %out;
 }

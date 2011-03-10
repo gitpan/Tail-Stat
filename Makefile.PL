@@ -4,15 +4,16 @@ name           'Tail-Stat';
 all_from       'lib/Tail/Stat.pm';
 license        'perl';
 
-requires       'DateTime'           => 0;
-requires       'JSON::XS'           => 0;
-requires       'Log::Dispatch'      => 2.26;
-requires       'POE'                => 0;
-requires       'Pid::File::Flock'   => 0;
-requires       'Sys::Syslog'        => 0.16;
-requires       'Tie::Hash::Indexed' => 0;
+requires       'DateTime';
+requires       'JSON::XS';
+requires       'Log::Dispatch' => 2.26;
+requires       'POE';
+requires       'Pid::File::Flock';
+requires       'Sys::Syslog' => 0.16;
+requires       'Tie::Hash::Indexed';
 
-test_requires  'Test::More'         => 0;
+test_requires  'Test::More';
+test_requires  'Test::TCP';
 
 install_script 'bin/tstatd';
 

@@ -1,5 +1,11 @@
 Revision history for Tail-Stat
 
+0.12    2011-03-10
+        - Created tests with real log files.
+
+0.11    2011-02-25
+        - Sliding window for Plugin::cvsupd
+
 0.10    2011-02-25
         - Fixed forgotten bin/tstatd.
 
