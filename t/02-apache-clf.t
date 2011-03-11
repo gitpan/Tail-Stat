@@ -70,6 +70,7 @@ test_tcp(
 	},
 	server => sub {
 		my $port = shift;
+		$ENV{ PERL5LIB } = join ':', @INC;
 		exec qq( $bin -b$db -f -l$port --log-level=error -o clf -p$pid -w1 apache x:$log );
 	},
 );

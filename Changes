@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.13    2011-11-10
+        - Forced PERL5LIB for test environment.
+
 0.12    2011-03-10
         - Created tests with real log files.
 
