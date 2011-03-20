@@ -167,7 +167,6 @@ use strict;
 use warnings qw(all);
 
 use Cwd qw(getcwd realpath);
-use Data::Dumper;
 use DateTime;
 use File::Basename qw(fileparse);
 use FindBin;

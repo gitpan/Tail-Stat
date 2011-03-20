@@ -667,9 +667,7 @@ sub _load {
     $file .= '.pm';
 
     local $@;
-	my $rc =  eval { require $file; $mod->VERSION } || ( $@ ? undef: 0 );
-	warn  if $@;
-    return $rc;
+    return eval { require $file; $mod->VERSION } || ( $@ ? undef: 0 );
 }
 
 # Load CPAN.pm and it's configuration
@@ -819,4 +817,4 @@ END_MAKE
 
 __END__
 
-#line 1073
+#line 1071

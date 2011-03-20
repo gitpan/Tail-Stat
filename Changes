@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.14    2011-11-19
+        - Removed useless use of Data::Dumper
+
 0.13    2011-11-10
         - Forced PERL5LIB for test environment.
 
