@@ -53,7 +53,7 @@ test_tcp(
 	server => sub {
 		my $port = shift;
 		$ENV{ PERL5LIB } = join ':', @INC;
-		exec qq( $bin -b$db -f -l$port --log-level=error -p$pid -w1 clamd x:$log );
+		exec qq($^X $bin -b$db -f -l$port --log-level=error -p$pid -w1 clamd x:$log);
 	},
 );
 

@@ -7,5 +7,4 @@
 ^Makefile$
 ^Makefile\.old$
 ^MANIFEST\.bak$
-^META\.yml$
 \.tar\.gz$
