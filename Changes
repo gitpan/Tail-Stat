@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.16    2011-03-27
+        - Increased timeouts in tests
+
 0.15    2011-03-23
         - Try to fix automated tests
 

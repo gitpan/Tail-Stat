@@ -420,7 +420,7 @@ POE::Session->create(
 			my %popts;
 			for (split /,/, $opts{options} || '') {
 				my ($k,$v) = split /=/;
-				$popts{$k} = $v // 1;
+				$popts{$k} = defined $v ? $v : 1;
 			}
 			$popts{regex} = $opts{regex} if exists $opts{regex};
 			$_[HEAP]->{plugin} = $pclass->new(%popts);
