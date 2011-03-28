@@ -54,7 +54,7 @@ test_tcp(
 		is $s->getline => "last_spam_bytes: 3345150\r\n";
 		is $s->getline => "last_spam_elapsed: 1608.2\r\n";
 		is $s->getline => "last_spam_messages: 490\r\n";
-		like $s->getline => qr{last_spam_rate: 9566\.70};
+		like $s->getline => qr{last_spam_rate: 9566\.7};
 		is $s->getline => "spam_bytes: 3345150\r\n";
 		is $s->getline => "spam_messages: 490\r\n";
 		alarm 0;
