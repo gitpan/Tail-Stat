@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.18    2011-06-16
+        - HTTP statuses 503,504 for Plugin::nginx.
+
 0.17    2011-03-28
         - Test fixed
 

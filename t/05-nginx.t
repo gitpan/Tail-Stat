@@ -7,6 +7,8 @@ use File::Spec;
 use Test::More;
 use Test::TCP;
 
+plan skip_all => 'MS Windows'
+	if $^O eq 'MSWin32';
 
 my $bin = File::Spec->catfile('bin','tstatd');
 my $db  = File::Spec->catfile('t','db');
@@ -64,7 +66,9 @@ test_tcp(
 		is $s->getline => "http_status_499: 2\r\n";
 		is $s->getline => "http_status_4xx: 15\r\n";
 		is $s->getline => "http_status_500: 2\r\n";
-		is $s->getline => "http_status_502: 3\r\n";
+		is $s->getline => "http_status_502: 1\r\n";
+		is $s->getline => "http_status_503: 2\r\n";
+		is $s->getline => "http_status_504: 2\r\n";
 		is $s->getline => "http_status_5xx: 7\r\n";
 		is $s->getline => "http_version_0_9: 3\r\n";
 		is $s->getline => "http_version_1_0: 22\r\n";
@@ -89,6 +93,6 @@ test_tcp(
 done_testing;
 
 END {
-	-f $_ and unlink $_ for $db,$log,$pid;
+	-f $_ and unlink $_ for grep { defined } $db,$log,$pid;
 }
 

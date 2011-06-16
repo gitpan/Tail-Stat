@@ -163,6 +163,14 @@ Total number of served requests with status of 500.
 
 Total number of served requests with status of 502.
 
+=item C<http_status_503>
+
+Total number of served requests with status of 503.
+
+=item C<http_status_504>
+
+Total number of served requests with status of 504.
+
 =back
 
 
@@ -412,6 +420,8 @@ sub stats_zone {
 		http_status_499
 		http_status_500
 		http_status_502
+		http_status_503
+		http_status_504
 
 	), $self->{clf} ? () : qw(
 
@@ -449,7 +459,7 @@ sub stats_zone {
 		/^http_status_([1-5])/ and do {
 			$out{'http_status_'. $1.'xx'} += $pub->{$_};
 			# particular statuses
-			/^http_status_(404|499|500|502)/ and do {
+			/^http_status_(404|499|500|502|503|504)/ and do {
 				$out{'http_status_'. $1} += $pub->{$_};
 			};
 			next;

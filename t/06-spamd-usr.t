@@ -7,6 +7,8 @@ use File::Spec;
 use Test::More;
 use Test::TCP;
 
+plan skip_all => 'MS Windows'
+	if $^O eq 'MSWin32';
 
 my $bin = File::Spec->catfile('bin','tstatd');
 my $db  = File::Spec->catfile('t','db');
@@ -125,6 +127,6 @@ test_tcp(
 done_testing;
 
 END {
-	-f $_ and unlink $_ for $db,$log,$pid;
+	-f $_ and unlink $_ for grep { defined } $db,$log,$pid;
 }
 
