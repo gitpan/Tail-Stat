@@ -17,12 +17,15 @@ lib/Tail/Stat/Plugin.pm
 lib/Tail/Stat/Plugin/apache.pm
 lib/Tail/Stat/Plugin/clamd.pm
 lib/Tail/Stat/Plugin/cvsupd.pm
+lib/Tail/Stat/Plugin/icecast.pm
 lib/Tail/Stat/Plugin/nginx.pm
 lib/Tail/Stat/Plugin/spamd.pm
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
 META.yml
+MYMETA.json
+MYMETA.yml
 README
 t/00-load.t
 t/01-tstatd.t
@@ -35,8 +38,10 @@ t/05-nginx-clf.t
 t/05-nginx.t
 t/06-spamd-usr.t
 t/06-spamd.t
+t/07-icecast.t
 t/ex/apache
 t/ex/clamd
 t/ex/cvsupd
+t/ex/icecast
 t/ex/nginx
 t/ex/spamd
