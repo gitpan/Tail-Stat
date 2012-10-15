@@ -60,7 +60,10 @@ test_tcp(
 		is $s->getline => "http_method_post: 9\r\n";
 		is $s->getline => "http_request: 200\r\n";
 		is $s->getline => "http_status_1xx: 0\r\n";
+		is $s->getline => "http_status_200: 114\r\n";
+		is $s->getline => "http_status_204: 61\r\n";
 		is $s->getline => "http_status_2xx: 175\r\n";
+		is $s->getline => "http_status_304: 3\r\n";
 		is $s->getline => "http_status_3xx: 3\r\n";
 		is $s->getline => "http_status_404: 13\r\n";
 		is $s->getline => "http_status_499: 2\r\n";

@@ -127,6 +127,10 @@ Total number of served HTTP/1.1 requests.
 
 =over
 
+=item C<http_status_xxx>
+
+Total number of served requests with status of xxx.
+
 =item C<http_status_1xx>
 
 Total number of served requests with status of 100-199.
@@ -146,30 +150,6 @@ Total number of served requests with status of 400-499.
 =item C<http_status_5xx>
 
 Total number of served requests with status of 500-599.
-
-=item C<http_status_404>
-
-Total number of served requests with status of 404.
-
-=item C<http_status_499>
-
-Total number of served requests with status of 499.
-
-=item C<http_status_500>
-
-Total number of served requests with status of 500.
-
-=item C<http_status_502>
-
-Total number of served requests with status of 502.
-
-=item C<http_status_503>
-
-Total number of served requests with status of 503.
-
-=item C<http_status_504>
-
-Total number of served requests with status of 504.
 
 =back
 
@@ -416,13 +396,6 @@ sub stats_zone {
 		http_status_4xx
 		http_status_5xx
 
-		http_status_404
-		http_status_499
-		http_status_500
-		http_status_502
-		http_status_503
-		http_status_504
-
 	), $self->{clf} ? () : qw(
 
 		last_request_time
@@ -459,9 +432,7 @@ sub stats_zone {
 		/^http_status_([1-5])/ and do {
 			$out{'http_status_'. $1.'xx'} += $pub->{$_};
 			# particular statuses
-			/^http_status_(404|499|500|502|503|504)/ and do {
-				$out{'http_status_'. $1} += $pub->{$_};
-			};
+			$out{$_} += $pub->{$_};
 			next;
 		};
 

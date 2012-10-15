@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.20    2012-10-15
+        - Calculate http statuses separately (apache,nginx)
+
 0.19    2011-11-24
         - New IceCast plugin.
 

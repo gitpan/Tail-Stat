@@ -3,13 +3,13 @@ abstract: 'Real-time log statistics server'
 author:
   - 'Oleg A. Mamontov, C<< <oleg@mamontov.net> >>'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.36
   Test::More: 0
   Test::TCP: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 0
-generated_by: 'ExtUtils::MakeMaker version 6.59, CPAN::Meta::Converter version 2.112621'
+generated_by: 'ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -27,4 +27,4 @@ requires:
   Pid::File::Flock: 0
   Sys::Syslog: 0.16
   Tie::Hash::Indexed: 0
-version: 0.19
+version: 0.20
