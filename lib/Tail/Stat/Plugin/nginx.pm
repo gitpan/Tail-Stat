@@ -304,6 +304,9 @@ sub process_data {
 	my $self = shift;
 	my ($ref,$pub,$prv,$win) = @_;
 
+	# don't take into account at all
+	return 1 if $ref->[8]==400 || $ref->[8]==408;
+
 	$pub->{http_request}++;
 	$win->{http_request}++;
 
@@ -327,7 +330,9 @@ sub process_data {
 
 	# extended part
 	unless ($self->{clf}) {
-		$win->{request_time} += $ref->[12] if $ref->[12] && $ref->[12] < 1_000_000;
+		$win->{request_time} += $ref->[12]
+			if $ref->[12] &&
+			   $ref->[12] < 1_000_000;  # old nginx bug workaround
 
 		if ($ref->[13] && $ref->[13] ne '-') {
 			if (index($ref->[13], ',') >= 0 ||

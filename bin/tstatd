@@ -730,7 +730,8 @@ POE::Session->create(
 		# got client command
 		client_input => sub {
 			$log->debug("got client command: '$_[ARG0]'");
-			my $cln = $_[HEAP]->{clients}{$_[ARG1]};
+			my $cln = $_[HEAP]->{clients}{$_[ARG1]} or
+				return $log->warning("unknown client #$_[ARG1]");
 
 			for ($_[ARG0]) {
 

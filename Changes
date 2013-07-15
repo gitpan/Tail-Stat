@@ -1,5 +1,9 @@
 Revision history for Tail-Stat
 
+0.21    2013-07-12
+        - Ignore http statuses 400,408 in nginx access logs.
+        - Fixed write attempt to previously closed socket (thanks to Dmitry Pryadko).
+
 0.20    2012-10-15
         - Calculate http statuses separately (apache,nginx)
 
