@@ -263,11 +263,7 @@ sub regex {
 		"(?:               # request
 			([A-Z]+)       # http method [4]
 				\s+
-			(              # request uri [5]
-				/\S*       # abs_path
-				|
-				http://\S* # absoluteURI
-			)
+			(/[^"]*?)      # request uri [5]
 			(?:            # http version > 0.9
 				\s+
 			HTTP/(1\.[01]) # http version [6]

@@ -1,5 +1,8 @@
 Revision history for Tail-Stat
 
+0.22    2014-10-17
+        - Fixed parsing nginx lines with $request_uri contains spaces.
+
 0.21    2013-07-12
         - Ignore http statuses 400,408 in nginx access logs.
         - Fixed write attempt to previously closed socket (thanks to Dmitry Pryadko).
